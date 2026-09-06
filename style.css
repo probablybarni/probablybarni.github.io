@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: "JetBrains Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color: #ccd;
+}
+
+body {
+    --s: 100px;
+    --_g: transparent 90deg,#121222 0;
+    background: 
+        conic-gradient(from 90deg at 2px 2px,var(--_g)) 0 0/var(--s) var(--s),
+        conic-gradient(from 90deg at 1px 1px,var(--_g)) 0 0/calc(var(--s)/5) calc(var(--s)/5)
+        #0e0e16;
+     background-position: calc(var(--s)/2);
+    display: flex;
+    justify-content: center;
+}
+
+main {
+    max-width: 800px;
+    padding: 20px 40px;
+}
+
+hr {
+    border-color: #ccd5;
+    margin-bottom: 20px;
+}
+
+.horizontal {
+    display: flex;
+    gap: 16px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.social {
+    height: 2em;
+    fill: #ccd;
+}
+
+.topmargined {
+    margin-top: 2em;
+}
+
+#projects {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.card {
+    box-shadow: 0 0 20px #0005;
+    background-color: #141420;
+    border-radius: 10px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border: 1px solid #ccd2;
+    transition: background-color 150ms;
+}
+
+.card:hover {
+    background-color: #181824;
+}
+
+.card h2, .card p {
+    margin: 0;
+}
+
+.projheader {
+    display: flex;
+    width: 100%;
+}
+
+.projheader h2 {
+    flex-grow: 1;
+}
+
+.projheader p {
+    color: #ccda;
+}
+
+main > p:last-of-type {
+    margin-top: 24px;
+}
+
+@media (max-width: 480px) {
+    .projheader { flex-direction: column; gap: 4px; }
+    main { padding: 20px; }
+}
+
