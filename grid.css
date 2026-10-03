@@ -1,0 +1,56 @@
+
+:root {
+    --bg: #16161a;
+    --grid: #334;
+    --grad: linear-gradient(to bottom right, #0000 0%, #0000 45%, #3d64ff 50%, #0000 55%, #0000 100%);
+}
+
+body {
+    background:
+        linear-gradient(to right, var(--bg) 9px, #0000 1px),
+        linear-gradient(to bottom, var(--bg) 9px, #0000 1px),
+        linear-gradient(to right, var(--grid) 1px, #0000 1px),
+        linear-gradient(to bottom, var(--grid) 1px, #0000 1px),
+        var(--bg);
+    background-size: 16px 16px, 16px 16px, 64px 64px, 64px 64px;
+    background-position: 8px 8px, 8px 8px, 4px 4px, 4px 4px;
+}
+
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+
+    background: var(--grad);
+    background-size: 300% 300%;
+    animation: pulse 7s linear infinite;
+
+    -webkit-mask-size: 64px 64px, 16px 16px;
+    -webkit-mask-position: 4px 4px, 8px 8px;
+    -webkit-mask-composite: source-in;
+    mask-size: 64px 64px, 16px 16px;
+    mask-position: 4px 4px, 8px 8px;
+    mask-composite: intersect;
+}
+
+body::before {
+    --mask: linear-gradient(to right, #000 1px, #0000 1px),
+        linear-gradient(to bottom, #0000 9px, #000 9px);
+    -webkit-mask-image: var(--mask);
+    mask-image: var(--mask);
+}
+
+body::after {
+    --mask: linear-gradient(to bottom, #000 1px, #0000 1px),
+        linear-gradient(to right, #0000 9px, #000 9px);
+    -webkit-mask-image: var(--mask);
+    mask-image: var(--mask);
+}
+
+@keyframes pulse {
+from { background-position: 80% 80%; }
+to { background-position: 20% 20%; }
+}
+
